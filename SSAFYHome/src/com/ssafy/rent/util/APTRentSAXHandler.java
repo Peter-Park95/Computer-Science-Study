@@ -27,7 +27,9 @@ public class APTRentSAXHandler extends DefaultHandler {
 		if(qName.equals("item")){
 			// complete code #04
 			// APTDealSAXHandler Class 를 참조하여, 아파트 전월세 거래 정보에 맞도록 코드를 추가하세요.
-
+			home = new HomeDeal(HomeSaxParser.no++);
+			home.setType(HomeDeal.HOME_RENT);
+			homes.add(home);
 		}
 	}
 	public void endElement(String uri, String localName, String qName){
