@@ -9,7 +9,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.ssafy.rent.model.dto.HomeInfo;
 
 /**
- *  AptDealHistory.xml 파일에서 아파트 거래 정보를 읽어 파싱하는 핸들러 클래스 
+ *  AptInfo.xml 파일에서 아파트 거래 정보를 읽어 파싱하는 핸들러 클래스 
  */
 public class HomeSAXHandler extends DefaultHandler {
 	/**
