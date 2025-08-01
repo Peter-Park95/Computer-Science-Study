@@ -37,7 +37,7 @@ public class HomeDaoImpl implements HomeDao {
      * 검색 조건(key) 검색 단어(word)에 해당하는 아파트 거래 정보(HomeInfo)를 검색해서 반환.
      * 
      * @param bean
-     *            검색 조건과 검색 단어가 있는 객체
+     *             검색 조건과 검색 단어가 있는 객체
      * @return 조회한 주택 목록
      */
     public List<HomeDeal> searchAll(HomePageBean bean) {
@@ -76,37 +76,46 @@ public class HomeDaoImpl implements HomeDao {
 
     /**
      * 아파트 식별 번호에 해당하는 아파트 거래 정보를 검색해서 반환한다.<br/>
-     * 법정동+아파트명을 이용하여 HomeInfo에서 건축연도, 법정코드, 지번, 이미지 정보를 찾아서 HomeDeal에 setting한 정보를 반환한다.
+     * 법정동+아파트명을 이용하여 HomeInfo에서 건축연도, 법정코드, 지번, 이미지 정보를 찾아서 HomeDeal에 setting한 정보를
+     * 반환한다.
      * 
      * @param no
-     *            검색할 아파트 식별 번호
+     *           검색할 아파트 식별 번호
      * @return 아파트 식별 번호에 해당하는 아파트 거래 정보를 찾아서 리턴한다, 없으면 null이 리턴됨
      */
     public HomeDeal search(int no) {
         // complete code #03
         // List<HomeDeal> search 로부터 no 에 해당하는 HomeDeal 정보를 검색하여 return 하도록 코드를 작성하세요.
         // 해당하는 no 가 없을 경우 null 을 리턴하세요.
+        for (int i = 0; i < search.size(); i++) {
+            if (search.get(i).getNo() == no) {
+                return search.get(i);
+            }
+        }
         return null;
     }
 
-    //	public static void main(String[] args) {
-    //		HomeDaoImpl dao = new HomeDaoImpl();
-    //		//dao.loadData();
-    //		System.out.println(dao.search(1));
-    //		System.out.println("===========================법정동으로 검색=================================");
-    //		HomePageBean dongSearch = new HomePageBean();
-    //		dongSearch.setDong("사직동");
-    //		print(dao.searchAll(dongSearch));
-    //		
-    //		System.out.println("===========================아파트 이름으로 검색=================================");
-    //		HomePageBean nameSearch = new HomePageBean();
-    //		nameSearch.setAptname("신동아블루아광화문의 꿈");
-    //		print(dao.searchAll(nameSearch));
-    //		
-    //		System.out.println("===========================전체 검색=================================");
-    //		print(dao.searchAll(null));
-    //		System.out.println("============================================================");
-    //	}
+    // public static void main(String[] args) {
+    // HomeDaoImpl dao = new HomeDaoImpl();
+    // //dao.loadData();
+    // System.out.println(dao.search(1));
+    // System.out.println("===========================법정동으로
+    // 검색=================================");
+    // HomePageBean dongSearch = new HomePageBean();
+    // dongSearch.setDong("사직동");
+    // print(dao.searchAll(dongSearch));
+    //
+    // System.out.println("===========================아파트 이름으로
+    // 검색=================================");
+    // HomePageBean nameSearch = new HomePageBean();
+    // nameSearch.setAptname("신동아블루아광화문의 꿈");
+    // print(dao.searchAll(nameSearch));
+    //
+    // System.out.println("===========================전체
+    // 검색=================================");
+    // print(dao.searchAll(null));
+    // System.out.println("============================================================");
+    // }
 
     public static void print(List<HomeDeal> homes) {
         for (HomeDeal home : homes) {
